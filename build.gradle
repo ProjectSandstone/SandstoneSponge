@@ -1,0 +1,40 @@
+buildscript {
+
+    ext.kotlin_version = '1.0.3'
+    ext.dokka_version = '0.9.8'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:${dokka_version}"
+    }
+
+}
+
+
+plugins {
+    id 'com.github.hierynomus.license' version '0.11.0'
+    id 'com.github.johnrengelman.shadow' version '1.2.3'
+}
+
+group 'com.github.projectsandstone'
+version '1.0-SNAPSHOT'
+
+apply from: 'gradle/sandstone.gradle'
+
+repositories {
+    maven {
+        name 'Sponge maven repo'
+        url 'http://repo.spongepowered.org/maven'
+    }
+}
+
+
+dependencies {
+    compile 'com.github.ProjectSandstone:SandstoneCommon:-SNAPSHOT'
+    compile "org.spongepowered:spongeapi:4.1.0"
+}
+
